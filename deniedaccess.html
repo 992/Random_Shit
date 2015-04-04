@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Denied Access</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                color: white;
+                text-decoration: none;
+            }
+            a,
+            small {
+                color: #34A6C7;
+            }
+            body {
+                text-align: center;
+                background: #101010;
+                font-family: 'Roboto', sans-serif;
+            }
+            h1 {
+                text-transform: uppercase;
+                font-size: 39px;
+            }
+            p {
+                line-height: 25px;
+            }
+            #t {
+                margin: 5px auto;
+                display: table;
+            }
+            #t > div {
+                display: table-row;
+            }
+            #t > div > div:first-child {
+                text-align: right;
+                color: #2a5;
+            }
+            #t > div > div {
+                text-align: left;
+                padding: 0 5px;
+                display: table-cell;
+            }
+        </style>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
+        <meta name="robots" content="noindex">
+    </head>
+
+    <body>
+        <div id="b">
+            <h1>denied cakey love</h1>
+            <p>Your IP address is in our servers block list thus cannot enter our site</p>
+            <p>Most likely blocked due to being a server, vpn or a proxy.</p>
+            <br>
+            <br>
+            <p>If this is not a Server, VPN or a Proxy contact us at
+                <a href="https://www.google.com/recaptcha/mailhide/d?k=013ctOz5ea6Q-8BDyjpIWKBw==&amp;c=6k9aCWLwCqn6ySjdeXAxZw==" onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\075013ctOz5ea6Q-8BDyjpIWKBw\75\75\46c\0756k9aCWLwCqn6ySjdeXAxZw\75\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;" title="Reveal this e-mail address">
+                    <small>REVEAL EMAIL</small>
+                </a>
+            </p>
+            <p>Include this information or the email will be ignored:</p>
+            <div id="t">
+                <div>
+                    <div>IP:</div>
+                    <div id="ip">Wait...</div>
+                </div>
+                <div>
+                    <div>ASN:</div>
+                    <div id="asn">Wait...</div>
+                </div>
+                <div>
+                    <div>ISP:</div>
+                    <div id="isp">Wait...</div>
+                </div>
+                <div>COUNTRY:</div>
+                    <div id="country">Wait...</div>
+                </div>
+                <div>
+                <div>
+                    <div>DATE:</div>
+                    <div id="date">Wait...</div>
+                </div>
+            </div>
+        </div>
+
+         <script type="application/javascript">
+            (window.onresize = function(event) {
+                document.body.style.paddingTop = (window.innerHeight - document.body.children[0].offsetHeight) / 2 + 'px'
+            })()
+
+            function getgeoip(json) {
+                document.getElementById('ip').innerHTML = json.ip || 'Invalid'
+                document.getElementById('isp').innerHTML = json.isp || 'Invalid'
+                document.getElementById('asn').innerHTML = json.asn || 'Invalid'
+                document.getElementById('country').innerHTML = json.country || 'Invalid'
+                document.getElementById('date').innerHTML = new Date().toGMTString().slice(0, 17);
+
+            }
+        </script>
+
+        <script type="application/javascript" src="https://www.telize.com/geoip?callback=getgeoip"></script>
+    </body>
+
+</html>
